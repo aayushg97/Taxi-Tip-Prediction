@@ -45,5 +45,12 @@ Some new features were added as shown in the table below :-
 | trip_month | Month of the trip |
 | duration | Duration of the trip in minutes (drop-off time - pickup time) |
 
+<br>
+<br>
+
 Following plots show relationship between some features. For more plots refer to Report.pdf
 
+![](Plots/BarTipvsDistance.png)
+![](Plots/BarTipvsDuration.png)
+![](Plots/BarTipvsPULocationID.png)
+![](Plots/BarTipvsLocationCont.png)
