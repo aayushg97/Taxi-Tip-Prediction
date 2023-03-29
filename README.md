@@ -54,3 +54,21 @@ Following plots show relationship between some features. For more plots refer to
 ![](Plots/BarTipvsDuration.png)
 ![](Plots/BarTipvsPULocationID.png)
 ![](Plots/BarTipvsLocationCont.png)
+
+## Methodology
+
+The predictive task for this data set is predicting the tip amount that a driver will receive from a passenger, given other trip details. Mean squared error measure (MSE) was used to evaluate models for this predictive task since a real value has to be predicted. The temporal features along with other features (trip details) were fed as input to a ridge regression model for predicting the tip amount.
+
+The highlight of this project is the use of temporal dynamics to predict the tip amount. The amount given as tip by a passenger may depend on how the passenger perceives a trip feature at different times. For instance, a passenger who has to reach office on time in the morning may give more tip to the driver if the trip duration is short. They may not give any tip if the duration is long and they reach the office late. So, some features (like duration) were split into different time bins. Taking trip duration as example, different hour bins were created for each hour of the day. For any entry in the data set, the hour bin corresponding to the ’pickup_hour’ value of the entry is assigned the value of trip duration of that entry and other hour bins are assigned a value of 0. Thus, by using this technique we capture temporal dynamics in each feature and using temporal dynamics improves performance.
+
+## Results
+
+| Model | MSE |
+| --- | --- |
+| Baseline | 2.061092 |
+| Baseline + temporal features | 2.053177 |
+| Baseline + temporal featuers + complex features | 2.034301 |
+
+## Conclusion
+
+These results show that temporal features are useful for explaining variation in data with respect to time. They can also explain how other non-temporal features might be perceived at different times and how this time-dependent perception can affect the quantity to be predicted. At the same time, considering better representations of features can also boost the performance.
